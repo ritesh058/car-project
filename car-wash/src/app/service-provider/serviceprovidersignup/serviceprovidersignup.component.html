@@ -1,0 +1,150 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../../../assets/img/car_title.png" style="width:100px">
+    </a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link hover" (click)="userSignIn()">Customer</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="serviceprovider">Service Provider</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="margin-top-1vw login-div">
+    <div [formGroup]="serviceProviderSignUp">
+        <h3 class="text-center">
+            <span class="badge badge-secondary ">Service Provider Sign Up</span>
+        </h3>
+        <div class="modal-body row">
+            <div class="form-group col-md-6">
+                <label for="firmName">Firm Name</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Firm Name" class="form-control" [ngClass]="{error:serviceProviderSignUp.get('firmName').invalid&&serviceProviderSignUp.get('firmName').touched}"
+                        id="firmName" formControlName="firmName">
+                </div>
+                <span class="error-text" *ngIf="serviceProviderSignUp.get('firmName').invalid&&serviceProviderSignUp.get('firmName').touched">*Required Field and 10digit</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="ownerName">Owner Name</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Owner Name" class="form-control" [ngClass]="{error:serviceProviderSignUp.get('ownerName').invalid&&serviceProviderSignUp.get('ownerName').touched}"
+                        id="firmName" formControlName="ownerName">
+                </div>
+                <span class="error-text" *ngIf="serviceProviderSignUp.get('ownerName').invalid&&serviceProviderSignUp.get('ownerName').touched">*Required Field and 10digit</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="mobileNo">Mobile No</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Mobile Number" class="form-control" [ngClass]="{error:serviceProviderSignUp.get('mobileNo').invalid&&serviceProviderSignUp.get('mobileNo').touched}"
+                        id="firmName" formControlName="mobileNo">
+                </div>
+                <span class="error-text" *ngIf="serviceProviderSignUp.get('mobileNo').invalid&&serviceProviderSignUp.get('mobileNo').touched">*Required Field and 10digit</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="emailId">Email</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Email Id" class="form-control" [ngClass]="{error:serviceProviderSignUp.get('emailId').invalid&&serviceProviderSignUp.get('emailId').touched}"
+                        id="firmName" formControlName="emailId">
+                </div>
+                <span class="error-text" *ngIf="serviceProviderSignUp.get('emailId').invalid&&serviceProviderSignUp.get('emailId').touched">*Email is not in correct format</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="address">Address</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <textarea type="text" placeholder="Enter Address Details" class="form-control" [ngClass]="{error:serviceProviderSignUp.get('address').invalid&&serviceProviderSignUp.get('address').touched}"
+                        id="firmName" formControlName="address"></textarea>
+                </div>
+                <span class="error-text" *ngIf="serviceProviderSignUp.get('address').invalid&&serviceProviderSignUp.get('address').touched">*Required Field and 10digit</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="pinCode">Pin Code</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Pin Code" class="form-control" [ngClass]="{error:serviceProviderSignUp.get('pinCode').invalid&&serviceProviderSignUp.get('pinCode').touched}"
+                        id="firmName" formControlName="pinCode">
+                </div>
+                <span class="error-text" *ngIf="serviceProviderSignUp.get('pinCode').invalid&&serviceProviderSignUp.get('pinCode').touched">*Required Field and 6 digit</span>
+            </div>
+        </div>
+        <div formGroupName="matchingPassword">
+            <div class="modal-body row">
+                <div class="form-group col-md-6">
+                    <label for="password">Enter Password</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-key" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input type="password" class="form-control" id="password" placeholder="Please enter password" [ngClass]="{error:(serviceProviderSignUp.controls.matchingPassword.controls.password.touched&&serviceProviderSignUp.controls.matchingPassword.controls.password.invalid)||serviceProviderSignUp.controls.matchingPassword.controls.confirmPassword.errors?.notEqual}"
+                            formControlName="password">
+                    </div>
+                    <span class="error-text" *ngIf="serviceProviderSignUp.controls.matchingPassword.controls.password.errors?.required&&serviceProviderSignUp.controls.matchingPassword.controls.password.touched">*Password is required</span>
+                    <br>
+                    <span class="error-text" *ngIf="serviceProviderSignUp.controls.matchingPassword.controls.confirmPassword.errors?.notEqual">*Password and confirm Password donot match</span>
+
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-key" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input type="password" class="form-control" compareField="password" id="confirmPassword" placeholder="Please confirm password"
+                            [ngClass]="{error:serviceProviderSignUp.controls.matchingPassword.controls.confirmPassword.touched&&serviceProviderSignUp.controls.matchingPassword.controls.confirmPassword.invalid}"
+                            formControlName="confirmPassword">
+                    </div>
+                    <span class="error-text" *ngIf="serviceProviderSignUp.controls.matchingPassword.controls.confirmPassword.errors?.required&&serviceProviderSignUp.controls.matchingPassword.controls.confirmPassword.touched">*Confirm password is required</span>
+                    <br>
+                    <span class="error-text" *ngIf="serviceProviderSignUp.controls.matchingPassword.controls.confirmPassword.errors?.notEqual">*Password and confirm Password donot match</span>
+
+                </div>
+            </div>
+        </div>
+
+
+        <button type="submit" title="Fill all the field to enable submit button" class="btn btn-primary btn-space" [disabled]="serviceProviderSignUp.invalid"
+            (click)="submitServiceProvider()">Submit</button>
+        <button type="submit" class="btn btn-primary btn-space" (click)="cancelSignIn()">Cancel</button>
+
+    </div>
+</div>

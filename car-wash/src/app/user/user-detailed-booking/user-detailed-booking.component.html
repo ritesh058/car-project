@@ -1,0 +1,164 @@
+<app-user-header></app-user-header>
+<div *ngIf="loadSpinner" class="spinner-div">
+    <i class="fa fa-spinner fa-spin spinner-style"></i>
+</div>
+<div class="margin-top-1vw login-div" *ngIf="!loadSpinner">
+    <div>
+        <h3 class="text-center">
+            <span class="badge badge-secondary ">Booking Detail for Vechile No.: " {{serviceDetail.vechileNo}} "</span>
+        </h3>
+        <div *ngIf="loadSpinner" class="spinner-div">
+            <i class="fa fa-spinner fa-spin spinner-style"></i>
+        </div>
+        <div *ngIf="errorMesg" class="error-message">{{errorMesg}}</div>
+
+        <div class="modal-body row">
+
+            <div class="form-group col-md-6">
+                <label for="vechileNo">Vechile Number</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-id-card" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input readonly type="text" class="form-control" id="vechileNo" [(ngModel)]="serviceDetail.vechileNo">
+                </div>
+            </div>
+            
+
+            <div class="form-group col-md-6">
+                <label for="vechileType">Vechile Type</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-car" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <select disabled id="vechileType" class="browser-default custom-select" [(ngModel)]="serviceDetail.vechileType">
+                        <option value="hb">Hatchback</option>
+                        <option value="sd">Sedan</option>
+                        <option value="cv">Convertible</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="ownerName">Vechile Owner Name</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input readonly type="text" class="form-control" id="firmName" [(ngModel)]="serviceDetail.ownerName">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="mobileNo">Mobile No</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input readonly type="text" class="form-control" id="firmName" [(ngModel)]="serviceDetail.mobileNo">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="serviceType">Service Type</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <select disabled class="browser-default custom-select" id="serviceType" [(ngModel)]="serviceDetail.serviceType">
+                        <option value="fcs">Full Car Service</option>
+                        <option value="mcs">Major Car Service</option>
+                        <option value="ics">Interim Car Service</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="requirement">Requirement</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <textarea readonly type="text" class="form-control" id="requirement" [(ngModel)]="serviceDetail.requirement"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="budgetPrice">Budget Price</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            ₹
+                        </span>
+                    </div>
+                    <input readonly type="text" class="form-control" id="budgetPrice" [(ngModel)]="serviceDetail.budgetPrice">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="areaLocation">Area Location</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input readonly type="text" class="form-control" id="areaLocation" [(ngModel)]="serviceDetail.areaLocation">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="serviceDate">Service Date</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input readonly type="date" class="form-control" id="serviceDate" [(ngModel)]="serviceDetail.serviceDate">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-body row">
+            <div class="form-group col-md-6">
+                <label for="pickLocation">PickUp Location</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-street-view" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input readonly type="text" class="form-control" id="pickLocation" [(ngModel)]="serviceDetail.pickLocation">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="pickupDate">PickUP Date</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input readonly type="date" class="form-control" id="pickupDate" [(ngModel)]="serviceDetail.pickupDate">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" (click)="deleteBoking()">Delete</button>
+        <button type="submit" class="btn btn-primary btn-space" (click)="cancelBooking()">Cancel</button>
+
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../../../assets/img/car_title.png" style="width:100px">
+    </a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="user">Customer</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+            <a class="nav-link hover" (click)="serviceProviderSignIn()">Service Provider</a>
+        </li>
+    </ul>
+</nav>
+<div [formGroup]="userSignUp">
+    <div class="col-md-3 margin-top-1vw login-div ">
+        <h3 class="text-center">
+            <span class="badge badge-secondary ">User SignUP</span>
+        </h3>
+        <div class="form-group">
+            <div *ngIf="successMesg" class="success-message">{{successMesg}}</div>
+            <div *ngIf="errorMesg" class="error-message">{{errorMesg}}</div>
+            <label for="userName">User Name</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="text" placeholder="Customer Name" (blur)="logValidationError(userSignUp)" class="form-control" [ngClass]="{'error':formErr.userName}"
+                    id="userName" formControlName="userName">
+            </div>
+            <span class="error-text" *ngIf="formErr.userName">{{formErr.userName}}</span>
+        </div>
+        <div class="form-group">
+            <label for="mobileNo" style="display:block">Mobile Number</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="text" placeholder="Enter 10 digit mobile number" (blur)="logValidationError(userSignUp)" class="form-control col-md-10"
+                    [ngClass]="{error:formErr.mobileNo}" id="mobileNo" style="display:inline" formControlName="mobileNo">
+            </div>
+
+            <span class="error-text" *ngIf="formErr.mobileNo">{{formErr.mobileNo}}</span>
+
+
+        </div>
+
+        <div class="form-group">
+            <label for="emailId" style="display:block">Email-Id</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="text" placeholder="Enter Email-Id" (blur)="logValidationError(userSignUp)" class="form-control col-md-10"
+                    [ngClass]="{error:formErr.emailId}" id="mobileNo" style="display:inline" formControlName="emailId">
+            </div>
+
+            <span class="error-text" *ngIf="formErr.emailId">{{formErr.emailId}}</span>
+
+
+        </div>
+
+        <div formGroupName="matchingPassword">
+            <div class="form-group">
+                <label for="password">Enter Password</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="password" [ngClass]="{error:formErr.password||userSignUp.controls.matchingPassword.controls.confirmPassword?.errors?.notEqual}"
+                        class="form-control" id="password" (blur)="logValidationError(userSignUp)" placeholder="Please enter password"
+                        formControlName="password">
+                </div>
+                <span class="error-text" *ngIf="formErr.password">{{formErr.password}}</span>
+                <span class="error-text" *ngIf="userSignUp.controls.matchingPassword.controls.confirmPassword?.errors?.notEqual">*Password and confirm Password donot match</span>
+
+
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="password" class="form-control" [ngClass]="{error:formErr.confirmPassword}" compareField="password" (blur)="logValidationError(userSignUp)"
+                        id="confirmPassword" placeholder="Please confirm password" formControlName="confirmPassword">
+                </div>
+                <span class="error-text" *ngIf="formErr.confirmPassword">{{formErr.confirmPassword}}</span>
+
+            </div>
+        </div>
+        <button type="submit" title="Fill all the field to enable submit button" class="btn btn-primary btn-space" [disabled]="userSignUp.invalid"
+            (click)="submitUser()">Submit</button>
+        <button type="submit" class="btn btn-primary btn-space" (click)="cancelSignIn()">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+<app-user-header></app-user-header>
+<div *ngIf="loadSpinner" class="spinner-div"><i class="fa fa-spinner fa-spin spinner-style"></i></div>
+<div class="margin-top-1vw login-div" *ngIf="!loadSpinner">
+    <div [formGroup]="bookingCarService">
+        <h3 class="text-center">
+            <span class="badge badge-secondary ">Booking for Wash/Maintainence</span>
+        </h3>
+
+        <div *ngIf="successMesg" class="success-message">{{successMesg}}</div>
+        <div *ngIf="errorMesg" class="error-message">{{errorMesg}}</div>
+
+        <div class="modal-body row">
+
+            <div class="form-group col-md-6">
+                <label for="vechileNo">Vechile Number</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-id-card" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Vechile Number" class="form-control" [ngClass]="{error:bookingCarService.get('vechileNo').invalid&&bookingCarService.get('vechileNo').touched}"
+                        id="vechileNo" formControlName="vechileNo">
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('vechileNo').invalid&&bookingCarService.get('vechileNo').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="vechileType">Vechile Type</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-car" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <select id="vechileType" class="browser-default custom-select" formControlName="vechileType" [ngClass]="{error:bookingCarService.get('vechileType').invalid&&bookingCarService.get('vechileType').touched}">
+                        <!-- <option>Open this select menu</option> -->
+                        <option value="hb">Hatchback</option>
+                        <option value="sd">Sedan</option>
+                        <option value="cv">Convertible</option>
+                    </select>
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('vechileType').invalid&&bookingCarService.get('vechileType').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="ownerName">Vechile Owner Name</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Owner Name" class="form-control" [ngClass]="{error:bookingCarService.get('ownerName').invalid&&bookingCarService.get('ownerName').touched}"
+                        id="firmName" formControlName="ownerName">
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('ownerName').invalid&&bookingCarService.get('ownerName').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="mobileNo">Mobile No</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Mobile Number" class="form-control" [ngClass]="{error:bookingCarService.get('mobileNo').invalid&&bookingCarService.get('mobileNo').touched}"
+                        id="firmName" formControlName="mobileNo">
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('mobileNo').invalid&&bookingCarService.get('mobileNo').touched">*Required Field and 10digit</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="serviceType">Service Type</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <select class="browser-default custom-select" id="serviceType" formControlName="serviceType" [ngClass]="{error:bookingCarService.get('serviceType').invalid&&bookingCarService.get('serviceType').touched}">
+                        <!-- <option selected>Open this select menu</option> -->
+                        <option value="fcs">Full Car Service</option>
+                        <option value="mcs">Major Car Service</option>
+                        <option value="ics">Interim Car Service</option>
+                    </select>
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('serviceType').invalid&&bookingCarService.get('serviceType').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="requirement">Requirement</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <textarea type="text" placeholder="Enter the Requirement" class="form-control" [ngClass]="{error:bookingCarService.get('requirement').invalid&&bookingCarService.get('requirement').touched}"
+                        id="requirement" formControlName="requirement"></textarea>
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('requirement').invalid&&bookingCarService.get('requirement').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="budgetPrice">Budget Price</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            ₹
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Amount" class="form-control" [ngClass]="{error:bookingCarService.get('budgetPrice').invalid&&bookingCarService.get('budgetPrice').touched}"
+                        id="budgetPrice" formControlName="budgetPrice">
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('budgetPrice').invalid&&bookingCarService.get('budgetPrice').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="areaLocation">Area Location</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Pickup Location" class="form-control" [ngClass]="{error:bookingCarService.get('areaLocation').invalid&&bookingCarService.get('areaLocation').touched}"
+                        id="areaLocation" formControlName="areaLocation">
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('areaLocation').invalid&&bookingCarService.get('areaLocation').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="serviceDate">Service Date</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="date" placeholder="Enter Pickup Location" class="form-control" [ngClass]="{error:bookingCarService.get('serviceDate').invalid&&bookingCarService.get('serviceDate').touched}"
+                        id="serviceDate" formControlName="serviceDate">
+                </div>
+                <span class="error-text" *ngIf="bookingCarService.get('serviceDate').invalid&&bookingCarService.get('serviceDate').touched">*Required Field</span>
+            </div>
+
+            <div class="custom-control custom-checkbox my-1 mr-sm-2 form-checkbox">
+                <input type="checkbox" class="custom-control-input" id="pickUp" formControlName="pickUp">
+                <label class="custom-control-label" for="pickUp" (click)="flag==true?flag=false:flag=true">Is PickUp Required?</label>
+            </div>
+        </div>
+
+        <div formGroupName="pickupDetail">
+            <div class="modal-body row">
+                <div class="form-group col-md-6">
+                    <label for="pickLocation">PickUp Location</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-street-view" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input type="text" [readonly]="!flag" placeholder="Enter Pickup Location" class="form-control" [ngClass]="{error:bookingCarService.get('pickupDetail').get('pickLocation').invalid&&bookingCarService.get('pickupDetail').get('pickLocation').touched}"
+                            id="pickLocation" formControlName="pickLocation">
+                    </div>
+                    <span class="error-text" *ngIf="bookingCarService.get('pickupDetail').get('pickLocation').invalid&&bookingCarService.get('pickupDetail').get('pickLocation').touched">*Required Field</span>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="pickupDate">PickUP Date</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input type="date" placeholder="Enter Pickup Location" [readonly]="!flag" class="form-control" [ngClass]="{error:bookingCarService.get('pickupDetail').get('pickupDate').invalid&&bookingCarService.get('pickupDetail').get('pickupDate').touched}"
+                            id="pickupDate" formControlName="pickupDate">
+                    </div>
+                    <span class="error-text" *ngIf="bookingCarService.get('pickupDetail').get('pickupDate').invalid&&bookingCarService.get('pickupDetail').get('pickupDate').touched">*Required Field</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <button type="submit" title="Fill all the field to enable submit button" class="btn btn-primary btn-space" [disabled]="bookingCarService.invalid"
+            (click)="submitBooking()">Submit</button>
+        <button type="submit" class="btn btn-primary btn-space" (click)="cancelBooking()">Cancel</button>
+
+    </div>
+</div>

@@ -1,0 +1,117 @@
+<app-user-header></app-user-header>
+
+<div class="margin-top-1vw login-div">
+    <div [formGroup]="editProfile">
+        <h3 class="text-center">
+            <span class="badge badge-secondary ">Edit Profile</span>
+        </h3>
+
+        <div *ngIf="successMesg" class="success-message">{{successMesg}}</div>
+        <div *ngIf="errorMesg" class="error-message">{{errorMesg}}</div>
+
+        <div class="form-group col-md-12">
+
+            <div class=" img-div user-profile-image position-relative">
+                <div class="img-div img-peview position-absolute" *ngIf="imagePreview">
+                    <img [src]="imagePreview">
+                    <i class="fa fa-check font-size-small check-box " aria-hidden="true"></i>
+
+                    <i class="fa fa-times form-checkbox font-size-small check-box" aria-hidden="true"></i>
+
+                </div>
+
+                <div class="edit-img-position hover" title="Click to edit pic">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="toggleImgUpload()">
+
+                    </i>
+                    <div style="display:inline-block;position:absolute">
+                        <div>
+                            <input *ngIf="uploadImg" type="file" (change)="selectFile($event)">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-body row">
+
+            <div class="form-group col-md-6">
+                <label for="userName">User Name</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Name" class="form-control" [ngClass]="{error:editProfile.get('userName').invalid && editProfile.get('userName').touched} "
+                        id="userName" [ngModel]="user.userName" formControlName="userName">
+                </div>
+                <span class="error-text" *ngIf="editProfile.get('userName').invalid && editProfile.get('userName').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="mobileNo" style="display:block">Mobile Number</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" [ngModel]="user.mobileNo" placeholder="Enter 10 digit mobile number" class="form-control col-md-10" [ngClass]="{error:editProfile.get('mobileNo').invalid && editProfile.get('mobileNo').touched }"
+                        id="mobileNo" style="display:inline" formControlName="mobileNo">
+                </div>
+                <span class="error-text" *ngIf="editProfile.get('mobileNo').invalid && editProfile.get('mobileNo').touched">*Required Field</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="emailId">Email</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" placeholder="Enter Email Id" [ngModel]="user.emailId" class="form-control" [ngClass]="{error:editProfile.get('emailId').invalid&&editProfile.get('emailId').touched}"
+                        id="firmName" formControlName="emailId">
+                </div>
+                <span class="error-text" *ngIf="editProfile.get('emailId').invalid&&editProfile.get('emailId').touched">*Email is not in correct format</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="address">Address</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <textarea type="text" [ngModel]="user.address" placeholder="Enter Address Details" class="form-control" [ngClass]="{error:editProfile.get('address').invalid&&editProfile.get('address').touched}"
+                        id="firmName" formControlName="address"></textarea>
+                </div>
+                <span class="error-text" *ngIf="editProfile.get('address').invalid&&editProfile.get('address').touched">*Required Field and 10digit</span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="pinCode">Pin Code</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="text" [ngModel]="user.pinCode" placeholder="Enter Pin Code" class="form-control" [ngClass]="{error:editProfile.get('pinCode').invalid&&editProfile.get('pinCode').touched}"
+                        id="firmName" formControlName="pinCode">
+                </div>
+                <span class="error-text" *ngIf="editProfile.get('pinCode').invalid&&editProfile.get('pinCode').touched">*Required Field and 6 digit</span>
+            </div>
+
+        </div>
+        <button type="submit" title="Fill all the field to enable submit button" class="btn btn-primary btn-space" [disabled]="editProfile.invalid"
+            (click)="updateUser()">Submit</button>
+        <button type="submit" class="btn btn-primary btn-space" (click)="cancelEdit()">Cancel</button>
+    </div>
+</div>

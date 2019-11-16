@@ -1,0 +1,59 @@
+<app-user-header></app-user-header>
+
+<div>
+    <div class="margin-top-1vw login-div">
+        <h3 class="text-center">
+
+            <span class="badge badge-secondary icon-medium">
+                <i class="fa fa-dashcube" aria-hidden="true"></i>
+                User Dashboard</span>
+        </h3>
+        <div class="modal-body row">
+            <div class="card" class="dashboard-div hover btn-success" [routerLink]="['userBookingService']" style="width: 18rem;">
+                <div class="card-body">
+
+                    <h5 class="card-title text-center" >
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <b> Booking For Service</b>
+                    </h5>
+                    <p class="card-text"></p>
+                    <!-- <a href="#" class="btn btn-primary">Click Here</a> -->
+                </div>
+            </div>
+            
+            <div class="card" class="dashboard-div hover btn-info" style="width: 18rem;" [routerLink]="['userBookingHistory']">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                        <b> View Older History</b>
+                    </h5>
+                    <p class="card-text"></p>
+                    <!-- <a href="#" class="btn btn-primary">Click Here</a> -->
+                </div>
+            </div>
+
+            <div class="card" class="dashboard-div hover btn-primary " style="width: 18rem;" [routerLink]="['userEdit']">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <b> User Profile</b>
+                    </h5>
+                    <p class="card-text"></p>
+                    <!-- <a href="#" class="btn btn-primary">Click Here</a> -->
+                </div>
+            </div>
+            
+            <div class="card" class="dashboard-div hover btn-danger" style="width: 18rem;" [routerLink]="['changepassword']">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                        <b> Change Password</b>
+                    </h5>
+                    <p class="card-text"></p>
+                    <!-- <a href="#" class="btn btn-primary">Click Here</a> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

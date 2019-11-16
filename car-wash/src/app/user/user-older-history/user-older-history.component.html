@@ -1,0 +1,26 @@
+<app-user-header></app-user-header>
+<div>
+    <div class="margin-top-1vw booking-history-div">
+        <h3 class="text-center col-md-12">
+
+            <span class="badge badge-secondary icon-medium">
+                <i class="fa fa-book" aria-hidden="true"></i>
+                View All Older History</span>
+        </h3>
+        <div class="error-message" *ngIf="errorMesg">{{errorMesg}}</div>
+        <div *ngIf="loadSpinner" class="spinner-div"><i class="fa fa-spinner fa-spin spinner-style"></i></div>
+        <div class="modal-body row" *ngIf="!loadSpinner">
+            <div *ngFor="let eachBooking of allBookingHistory"  class="card hover" (click)="detailedBooking(eachBooking._id.$oid)" style="width: 18rem;margin-left:2px" id="{{eachBooking._id.$oid}}">
+                <div class="card-body text-left" (click)="detailedBooking(eachBooking._id)">
+                    <b>Vechile No.:</b>{{eachBooking.vechileNo}}
+                    <br>
+                    <b>Service Date:</b>{{eachBooking.serviceDate|date:'dd/MM/yyyy'}}
+                    <br>
+                    <b>Pricing:</b>{{eachBooking.budgetPrice|currency:'INR'}}
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>

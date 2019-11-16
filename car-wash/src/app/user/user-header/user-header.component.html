@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a (click)="userDashboard()" class="hover"><i class="fa fa-dashcube" aria-hidden="true" style="color:aqua;font-size:3rem"></i></a>
+    <a class="text-fontFamily form-checkbox header-color" style="color: #379f9f;">Welcome : {{userLoggedIn|uppercase}}</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link">
+                <i title="User Profile" class="fa fa-user icon-medium user-icon-color hover" [ngClass]="{highlightIcon:status}" (click)="showHideDiv()"
+                    aria-hidden="true"></i>
+            </a>
+
+            <div class="profile-menu" [ngClass]="{toggleShowHideDiv:status}">
+                <button class="dropdown-item" type="button" [routerLink]="['userEdit']" (click)="hideSelection()">
+                    <i class="fa fa-user-circle" aria-hidden="true"> Edit Profile</i>
+
+                </button>
+                <button class="dropdown-item" type="button">
+                        Option
+    
+                    </button>
+
+            </div>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+            <a class="nav-link hover">
+                <i title="User Logout" class="fa fa-sign-out icon-medium user-icon-color" (click)="userLogout()" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

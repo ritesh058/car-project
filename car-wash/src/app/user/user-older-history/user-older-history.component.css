@@ -1,0 +1,12 @@
+.booking-history-div{
+    text-align: center;
+    display:inline-block;
+    border: 2px solid black;
+    width: 80%;
+    border-radius:10px;
+    box-shadow: 7px 10px #888;
+    height:70%;
+    margin-left:10%;
+    margin-right:10%;
+
+}

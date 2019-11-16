@@ -1,0 +1,94 @@
+body{
+    background:linear-gradient(90deg,white 40%,grey)
+}
+.wapper {
+    /* margin-left: 70vw; */
+    margin-top: 16vw;
+}
+
+.teddy {
+    position: fixed;
+    height: 500px;
+    width: 380px;
+}
+
+.eye {
+    position: relative;
+    padding: 96px 0px 0px 56px;
+}
+
+.leftEyeWapper {
+    height: 50px;
+    width: 50px;
+    /* background-color: red; */
+    border-radius: 50%;
+    animation: spin 5s linear 0s infinite reverse;
+    display: inline-block;
+    margin-top: 112px;
+    position: fixed;
+    margin-left: 133px;
+}
+
+.lefteye {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.righteye {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.rightEyeWapper {
+    height: 50px;
+    width: 50px;
+    /* background-color:blue; */
+    border-radius: 50%;
+    animation: spin 5s linear 0s infinite reverse;
+    display: inline-block;
+    margin-top: 112px;
+    position: fixed;
+    margin-left: 240px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(360deg)
+    }
+    80% {
+        transform: rotate(0deg);
+    }
+    90%{
+        transform:rotateX(45deg);
+    }
+}
+
+
+.errorBox
+ {
+    position: absolute;
+    margin-top: -12vw;
+    width: 520px;
+    height: 280px;
+    background: rgb(188, 223, 255);                   
+    border-radius: 10px;
+    margin-left: 37vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+}
+
+.textBox{
+    position: absolute;
+    margin:10% 50%;
+    color:red
+}
+.text{
+    font-size:40px;
+    text-align:center;
+    justify-self: center;
+
+}
+

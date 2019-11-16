@@ -1,0 +1,138 @@
+.margin-top-1vw {
+    margin-top:2vw;
+}
+
+.blackish{
+    color:black
+}
+
+.error{
+    border: 2px solid red;
+}
+.error-text{
+    color:red
+}
+.input-box-medium{
+    width:70%
+}
+.login-div{
+    margin-left: 25%;
+    border: 2px solid black;
+    width: 50%;
+    border-radius:10px;
+    box-shadow: 7px 10px #888;
+    height:50%
+}
+.font-size-medium{
+    font-size: 2rem
+}
+.font-size-small{
+    font-size:1rem
+}
+
+
+.btn-space {
+    margin-right: 5px;
+}
+
+.hover{
+    cursor: pointer
+}
+
+.icon-medium{
+    font-size:2vw;
+}
+
+.user-icon-color{
+    color: #379f9f;
+}
+
+.user-icon-color:hover {
+    border-color: #fff;
+    color: #117a8b;
+  }
+
+.dashboard-div{
+    margin-left: 5%;
+    border: 1px solid;
+    width: 45%;
+    border-radius:10px;
+    box-shadow: 5px 5px #888;
+    height:45%;
+    margin-bottom: 5%;
+}
+
+.form-checkbox{
+    margin-left: 1rem;
+}
+
+.error-message{
+    font-size: 10px;
+    text-align: center;
+    color:red;
+}
+
+.success-message{
+    font-size: 10px;
+    text-align: center;
+    color:green;
+}
+
+.profile-menu{
+    background:#c8e9e9;
+    position: absolute;
+    z-index: 1000;
+    right: 1rem;
+    display: none;  
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+/* .profile-menu::after{
+    display: block;
+} */
+.toggleShowHideDiv{
+    display: block;    
+}
+.highlightIcon{
+    color:#1f4f57
+}
+
+.text-fontFamily{
+    font-family: Roboto;
+}
+
+.header-color{
+    color: #379f9f;
+}
+
+.position-relative{
+    position: relative;
+}
+.position-absolute{
+    position: absolute;
+}
+
+.check-box{
+    color:#117a8b;
+    border-radius:25%
+}
+
+.spinner-style{
+    font-size: 5vw;    
+    margin-top: 10%;    
+    color: #379f9f;
+}
+
+.spinner-div{
+    width:100%;
+    height:100%;
+    text-align: center
+    
+}

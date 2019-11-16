@@ -1,0 +1,81 @@
+<!-- <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="form-group">
+        <a routerLink="backhome">
+        <i class="fa fa-home font-size-medium" title="Back to home page"aria-hidden="true"></i>        
+        </a>
+        </div>       
+    
+</nav> -->
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../../../assets/img/car_title.png" style="width:100px">
+    </a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="user">Customer</a>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+            <a class="nav-link hover" (click)="serviceProviderSignIn()">Service Provider</a>
+        </li>
+    </ul>
+</nav>
+<div [formGroup]="userLoginForm">
+    <div class="col-md-3 margin-top-1vw login-div">
+        <h3 class="text-center">
+            <span class="badge badge-secondary ">Customer Login Form</span>
+        </h3>
+        <div *ngIf="errorMesg" class="error-message">{{errorMesg}}</div>
+
+        <div class="form-group">
+            <label for="mobileNo">Mobile Number</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="text" placeholder="Enter 10 digit mobile number" class="form-control" [ngClass]="{error:userLoginForm.get('mobileNo').invalid&&userLoginForm.get('mobileNo').touched}"
+                    id="mobileNo" formControlName="mobileNo">
+            </div>
+            <span class="error-text" *ngIf="userLoginForm.get('mobileNo').invalid&&userLoginForm.get('mobileNo').touched">*Required Field and 10digit</span>
+
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="password" placeholder="Enter the password" class="form-control" id="password" formControlName="userPassword"
+                    [ngClass]="{error:userLoginForm.get('userPassword').invalid &&userLoginForm.get('userPassword').touched}">
+            </div>
+            <span class="error-text" *ngIf="userLoginForm.get('userPassword').invalid &&userLoginForm.get('userPassword').touched">*Required Field</span>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="rememberMe">
+                <label class="form-check-label" for="gridCheck">
+                    Remember Me
+                </label>
+            </div>
+        </div>
+
+        <div class="btn-toolbar">
+            <button type="submit" [disabled]="userLoginForm.invalid" title="Please fill the required field to enable SignIn button" class="btn btn-primary btn-space"
+                (click)="submitUser()">Sign in</button>
+
+            <button type="submit" class="btn btn-primary btn-space" (click)="cancelSignIn()">Cancel</button>
+            <div *ngIf="loadSpinner"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></div>
+        </div>
+
+        <div class="form-group">
+            <label class="btn-space">Forget Password ?</label>
+            <a routerLink="forgetPassword">Click here</a>
+            <br>
+            <label class="btn-space">To signup</label>
+            <a routerLink="usersignup">Click here</a>
+        </div>
+    </div>
+</div>
