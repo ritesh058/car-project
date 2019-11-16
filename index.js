@@ -8,7 +8,7 @@ const path = require ('path');
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
-//comment line
+
 
 mongoose.connect("mongodb+srv://ritesh058:ritesh058@mflix-dkogv.mongodb.net/car-care?retryWrites=true&w=majority",{ useNewUrlParser: true,useUnifiedTopology: true },(error,data)=>{
     if(error){
